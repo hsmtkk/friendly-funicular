@@ -1,0 +1,1 @@
+terraform fmt -recursive && terraform validate && terraform apply -auto-approve
