@@ -20,3 +20,7 @@ module "dynamo_write" {
   }
 }
 
+resource "aws_lambda_event_source_mapping" "sqs_lambda" {
+  event_source_arn = aws_sqs_queue.queue.arn
+  function_name = module.dynamo_write.function_name
+}
