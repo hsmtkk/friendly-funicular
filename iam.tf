@@ -10,8 +10,9 @@ data "aws_iam_policy_document" "eventbridge" {
 }
 
 resource "aws_iam_role" "eventbridge" {
-  name               = "${var.project}-eventbridge"
-  assume_role_policy = data.aws_iam_policy_document.eventbridge.json
+  name                = "${var.project}-eventbridge"
+  assume_role_policy  = data.aws_iam_policy_document.eventbridge.json
+  managed_policy_arns = ["arn:aws:iam::aws:policy/service-role/AWSLambdaRole"]
 }
 
 data "aws_iam_policy_document" "lambda" {

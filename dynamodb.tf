@@ -6,4 +6,8 @@ resource "aws_dynamodb_table" "table" {
     name = "link"
     type = "S"
   }
+  ttl {
+    enabled        = true
+    attribute_name = "ttl"
+  }
 }
